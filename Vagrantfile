@@ -16,8 +16,9 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id,
                   "--name", "oradb",
-                  "--memory", "3072",
-                  "--natdnshostresolver1", "on"]
+                  "--memory", "2048",
+                  "--natdnshostresolver1", "on",
+                  "--cpus", "2"]
   end
 
   config.vm.provision :shell, :inline => "sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/Australia/Brisbane /etc/localtime"
